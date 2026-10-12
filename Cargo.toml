@@ -1,0 +1,17 @@
+[package]
+name = "opex_pet"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+eframe = { version = "0.36.2", default-features = false, features = ["glow", "default_fonts"] }
+image = { version = "0.25.10", default-features = false, features = ["webp", "png"] }
+
+[target."cfg(windows)".dependencies]
+windows-sys = { version = "0.61.2", features = ["Win32_Foundation", "Win32_Graphics_Dwm", "Win32_Graphics_Gdi", "Win32_UI_WindowsAndMessaging"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
